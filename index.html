@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hoja de Vida - KSTS</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header con id único -->
+  <header class="container site-header" id="site-header" role="banner">
+    <a class="logo" >👨🏻‍💻 Hoja de Vida</a>
+    <a href="https://www.youtube.com/watch?v=eMwWhJJ8oNE&t=914s" target="_blank">
+    <img class="foto" src="images/foto2.png" alt="Foto de perfil" />
+    </a>
+
+    <!-- id único para demostrar selectores por id -->
+    <nav id="site-nav" aria-label="Navegación principal">
+      <ul class="nav-list">
+        <li><a href="#sobremi">Sobre Mí</a></li>
+        <li><a href="#estudios">Estudios</a></li>
+        <li><a href="#herramientas">Herramientas</a></li>
+        <li><a href="#experiencia">Experiencia</a></li>
+        <li><a href="#footer">Redes Sociales</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero (sección destacada) -->
+  <section id="hero" class="hero" aria-labelledby="hero-title">
+    <div class="container hero__content">
+      <h1 id="hero-title">Kevin Santiago Trejos Serrano</h1>
+      <p>Desarrollador 6to Semestre TDS. <br> Celular: 3102200564 <br> Correo: trejos2005@outlook.com</p>
+    </div>
+  </section>
+
+  <main>
+    <!-- Sobre Mi: grid -->
+    <section id="sobremi" class="section container" aria-labelledby="cat-title">
+      <h2 id="cat-title">Sobre Mí</h2>
+      <div class="grid grid--categories">
+        <article class="category">
+          <p>Soy una persona proactiva, resolutiva y orientada a resultados, con capacidad para adaptarme a distintos entornos y enfrentar desafíos de manera eficiente. Me caracterizo por mi responsabilidad, compromiso y disposición al aprendizaje continuo, lo que me permite aportar soluciones efectivas y trabajar en equipo con una actitud positiva.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Estudios: cards en Grid -->
+    <section id="estudios" class="section container" aria-labelledby="dest-title">
+      <h2 id="dest-title">Estudios</h2>
+      <!--<details> -->
+        <!--<summary>Ver estudios</summary> -->
+        <div class="grid grid--cards">
+          <article class="card">
+            <img src="images/univalle.png" alt="Universidad del Valle" />
+            <div class="card__body">
+              <h3 class="card__title">Universidad del Valle Regional Eje Cafetero</h3>
+              <p class="card__desc">Estudiante de 6to Semestre de Tecnología en Desarrollo de Software. 2023 - 2026</p>
+              <span class="badge badge--accent">Educación Superior</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <img src="images/ieb.jpg" alt="IEB" />
+            <div class="card__body">
+              <h3 class="card__title">Institución Educativa Bolivariano</h3>
+              <p class="card__desc">Bachiller Graduado con técnico en Agroindustria Alimentaria (SENA). <br> 2017 - 2022</p>
+              <span class="badge badge--accent">Educación Básica Secundaria</span>
+            </div>
+          </article>
+        </div>
+      <!-- </details> -->
+    </section>
+
+    <!-- Herramientas -->
+    <section id="herramientas" class="section container" aria-labelledby="dest-title">
+      <h2 id="dest-title">Herramientas</h2>
+      <div class="grid grid--cards">
+        
+        <!-- Primera carta -->
+        <article class="card">
+          <img src="https://www.programaenlinea.net/wp-content/uploads/2024/10/Python-Emblem.png" alt="Python" />
+          <div class="card__body">
+            <h3 class="card__title">Python 3</h3>
+            <p class="card__desc">Lenguaje de programación de alto nivel.</p>
+            <span class="badge badge--accent">Backend</span>
+            <footer class="card__footer">
+            </footer>
+          </div>
+        </article>
+
+        <!-- Segunda carta -->
+        <article class="card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/1200px-HTML5_logo_and_wordmark.svg.png" alt="HTML" />
+          <div class="card__body">
+            <h3 class="card__title">HTML 5</h3>
+            <p class="card__desc">Lenguaje de marcado para estructurar páginas web.</p>
+            <span class="badge badge--accent">Frontend</span>
+            <footer class="card__footer">
+            </footer>
+          </div>
+        </article>
+
+        <!-- Tercera carta -->
+        <article class="card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg" alt="HTML" />
+          <div class="card__body">
+            <h3 class="card__title">PostgreSQL</h3>
+            <p class="card__desc">Object-relational database management system.</p>
+            <span class="badge badge--accent">DB</span>
+            <footer class="card__footer">
+            </footer>
+          </div>
+        </article>
+
+        <!-- Tercera carta -->
+        <article class="card">
+          <img src="https://images.ctfassets.net/kftzwdyauwt9/7lqBnA8Gaz7fvmABCmlQ4x/6ce679925b23e96d410c8b5509480806/Canva.png?w=1600&h=900&fit=fill" alt="Canva" />
+          <div class="card__body">
+            <h3 class="card__title">Canva</h3>
+            <p class="card__desc">Plataforma en línea para diseño gráfico.</p>
+            <span class="badge badge--accent">Diseño</span>
+            <footer class="card__footer">
+            </footer>
+          </div>
+        </article>
+      </div>
+    </section>
+
+
+    <!-- Experiencia --> 
+    <section id="experiencia" class="section container" aria-labelledby="dest-title">
+      <h2 id="dest-title">Experiencia</h2>
+      <div class="grid grid--cards">
+        
+        <!-- Primera carta -->
+        <article class="card">
+          <img src="images/univalle.png" alt="Universidad del Valle" />
+          <div class="card__body">
+            <h3 class="card__title">Universidad del Valle Regional Eje Cafetero</h3>
+            <p class="card__desc">Monitor Administrativo Tecnología en Gestión de Organizaciones Turísticas. 2025 - 2026</p>
+            <span class="badge badge--accent">Gestión Administrativa</span>
+            <footer class="card__footer">
+              <span class="price">Certificado:</span>
+              <a class="btn btn--primary" href="https://drive.google.com/file/d/1IkFI3RAiUSlTg4s1etEMeHRHpqWdMBLe/view?usp=sharing" target="_blank">Click Aquí</a>
+            </footer>
+          </div>
+        </article>
+
+        <!-- Segunda carta -->
+        <article class="card">
+          <img src="https://www.ucaldas.edu.co/portal/wp-content/uploads/2022/04/rredsi.jpg" alt="RREDSI" />
+          <div class="card__body">
+            <h3 class="card__title">Red Regional de Investigadores RREDSI</h3>
+            <p class="card__desc">Co-organizador del XIV ENCUENTRO DEPARTAMENTAL DE SEMILLEROS DE INVESTIGACIÓN – NODO VALLE DEL CAUCA 2025. <br> 16 de Mayo 2025</p>
+            <span class="badge badge--accent">Logística</span>
+            <footer class="card__footer">
+              <span class="price">Certificado:</span>
+              <a class="btn btn--primary" href="https://drive.google.com/file/d/1b2KstJs7uw4ghQD-tADpUj9MM43yR1AJ/view?usp=sharing" target="_blank">Click Aquí</a>
+            </footer>
+          </div>
+        </article>
+
+        <!-- Tercera carta -->
+        <article class="card">
+          <img src="images/pincel.png" alt="Diseños Canva" />
+          <div class="card__body">
+            <h3 class="card__title">Diseños</h3>
+            <p class="card__desc">Elaboración de flyers, certificados, y boletines para la Universidad del Valle. <br> 2025 - 2026</p>
+            <span class="badge badge--accent">Arte</span>
+            <footer class="card__footer">
+              <span class="price">Carpeta:</span>
+              <a class="btn btn--primary" href="https://www.canva.com/folder/FAFpbbKuwnk" target="_blank">Click Aquí</a>
+            </footer>
+          </div>
+        </article>
+      </div>
+    </section>
+
+  <footer id="footer" class="site-footer">
+    <div class="container footer__grid">
+      <small>© 2025 KSTS -- Redes Sociales <br>   </small>
+      <nav aria-label="Redes sociales">
+        <ul class="social" style="display:flex; gap:1rem; list-style:none; padding:0; margin:0;">
+          
+          <!-- LinkedIn -->
+          <li>
+            &nbsp;&nbsp;&nbsp; <!-- agrega espacios -->
+            <a href="https://www.linkedin.com/in/kevin-santiago-trejos-serrano-638b74369" target="_blank">
+              <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" 
+                  alt="LinkedIn" width="80" height="80">
+            </a>
+          </li>
+          
+          <!-- WhatsApp -->
+          <li>
+            &nbsp;&nbsp;&nbsp; <!-- agrega espacios -->
+            <a href="https://wa.me/573102200564" target="_blank">
+              <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" 
+                  alt="WhatsApp" width="80" height="80">
+            </a>
+          </li>
+          
+          <!-- Instagram -->
+          <li>
+            &nbsp;&nbsp;&nbsp; <!-- agrega espacios -->
+            <a href="https://www.instagram.com/ks_trejos" target="_blank">
+              <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" 
+                  alt="Instagram" width="80" height="80">
+            </a>
+          </li>
+
+          <!-- GitHub -->
+          <li>
+            &nbsp;&nbsp;&nbsp; <!-- agrega espacios -->
+            <a href="https://github.com/TrejosHub" target="_blank">
+              <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" 
+                  alt="GitHub" width="80" height="80">
+            </a>
+          </li>
+          
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+</body>
+</html>
