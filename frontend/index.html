@@ -48,8 +48,6 @@
     <!-- Estudios: cards en Grid -->
     <section id="estudios" class="section container" aria-labelledby="dest-title">
       <h2 id="dest-title">Estudios</h2>
-      <!--<details> -->
-        <!--<summary>Ver estudios</summary> -->
         <div class="grid grid--cards">
           <article class="card">
             <img src="images/univalle.png" alt="Universidad del Valle" />
@@ -69,7 +67,6 @@
             </div>
           </article>
         </div>
-      <!-- </details> -->
     </section>
 
     <!-- Herramientas -->
@@ -177,9 +174,25 @@
       </div>
     </section>
 
+    <!-- ★★★★★ SECCIÓN DE CONTACTO AÑADIDA SIN CAMBIAR NADA DEL HTML ORIGINAL ★★★★★ -->
+
+    <section id="contacto" class="section container">
+      <h2>Contáctame</h2>
+      <form id="contactForm" class="contact-form better-form">
+        <input type="text" name="nombre" placeholder="Tu nombre" required>
+        <input type="email" name="email" placeholder="Tu correo" required>
+        <textarea name="mensaje" placeholder="Mensaje" required></textarea>
+
+        <button class="btn btn--primary btn-large" type="submit">Enviar</button>
+        <div id="msg" class="contact-msg" role="status" aria-live="polite" style="margin-top:.5rem;"></div>
+      </form>
+    </section>
+
+  </main>
+
   <footer id="footer" class="site-footer">
     <div class="container footer__grid">
-      <small>© 2025 KSTS -- Redes Sociales <br>   </small>
+      <small>© 2025 KSTS -- Redes Sociales <br>   </small>
       <nav aria-label="Redes sociales">
         <ul class="social" style="display:flex; gap:1rem; list-style:none; padding:0; margin:0;">
           
@@ -223,6 +236,50 @@
       </nav>
     </div>
   </footer>
+
+  <!-- ★★★★★ SCRIPT PARA ENVIAR EL FORMULARIO A FASTAPI ★★★★★ -->
+  <script>
+    (function(){
+      const form = document.getElementById("contactForm");
+      const msgEl = document.getElementById("msg");
+      const submitBtn = form.querySelector('button[type="submit"]');
+
+      form.addEventListener("submit", async (e)=>{
+        e.preventDefault();
+
+        submitBtn.disabled = true;
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = "Enviando...";
+
+        const data = Object.fromEntries(new FormData(form).entries());
+
+        try {
+          const res = await fetch("http://localhost:8000/contacto", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+          });
+
+          if (res.ok) {
+            msgEl.style.color = "green";
+            msgEl.textContent = "Mensaje enviado ✔️";
+            form.reset();
+          } else {
+            msgEl.style.color = "crimson";
+            msgEl.textContent = "Error al enviar ✖️";
+          }
+        } catch (err) {
+          msgEl.style.color = "crimson";
+          msgEl.textContent = "Error de red ✖️";
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalText;
+          // Auto-ocultar el mensaje después de 5 segundos
+          setTimeout(()=>{ msgEl.textContent = ""; }, 5000);
+        }
+      });
+    })();
+  </script>
 
 </body>
 </html>
