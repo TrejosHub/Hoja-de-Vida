@@ -1,20 +1,26 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-from database import get_connection
+import requests
+import os
+from dotenv import load_dotenv
 from datetime import datetime
 from fastapi.middleware.cors import CORSMiddleware
 
+load_dotenv()
+
+SUPABASE_URL = os.getenv("SUPABASE_URL")
+SUPABASE_KEY = os.getenv("SUPABASE_KEY")
+
 app = FastAPI()
 
-# ------- CORS FIX --------
+# CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],      # en producción cámbialo por tu dominio
+    allow_origins=["*"],
     allow_credentials=True,
-    allow_methods=["*"],       # <-- IMPORTANTE para OPTIONS
+    allow_methods=["*"],
     allow_headers=["*"],
 )
-# -------------------------
 
 class Contacto(BaseModel):
     nombre: str
@@ -23,18 +29,28 @@ class Contacto(BaseModel):
 
 @app.post("/contacto")
 def contacto(data: Contacto):
-    conn = get_connection()
-    cur = conn.cursor()
+    url = f"{SUPABASE_URL}/rest/v1/contact_messages"
 
-    cur.execute(
-        """
-        INSERT INTO contact_messages (nombre, email, mensaje, fecha)
-        VALUES (%s, %s, %s, %s)
-        """,
-        (data.nombre, data.email, data.mensaje, datetime.now())
-    )
+    payload = {
+        "nombre": data.nombre,
+        "email": data.email,
+        "mensaje": data.mensaje,
+        "fecha": datetime.now().isoformat()
+    }
 
-    conn.commit()
-    conn.close()
+    headers = {
+        "apikey": SUPABASE_KEY,
+        "Authorization": f"Bearer {SUPABASE_KEY}",
+        "Content-Type": "application/json",
+        "Prefer": "return=minimal"
+    }
 
-    return {"status": "ok", "msg": "Guardado correctamente"}
+    res = requests.post(url, json=payload, headers=headers)
+
+    if res.status_code in (200, 201):
+        return {"status": "ok", "msg": "Guardado en Supabase ✔️"}
+    else:
+        return {
+            "status": "error",
+            "detail": res.text
+        }
